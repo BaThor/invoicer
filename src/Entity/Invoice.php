@@ -2,6 +2,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\InvoiceRepository")
@@ -24,6 +25,18 @@ class Invoice
      * @ORM\Column(type="integer")
      */
     private $price;
+
+  /**
+    * @Assert\DateTime()
+    * @ORM\Column(type="datetime")
+    */
+    private $invoiceDate;
+
+  /**
+    * @Assert\DateTime()
+    * @ORM\Column(type="datetime")
+    */
+    private $paymentDate;
 
     public function getId()
     {
@@ -48,7 +61,71 @@ class Invoice
      */
     public function setName($name)
     {
-        $this->address = $name;
+        $this->name = $name;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     * @return Invoice
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * Get invoiceDate
+     *
+     * @return datetime
+     */
+    public function getInvoiceDate()
+    {
+        return $this->invoiceDate;
+    }
+
+    /**
+     * Set invoiceDate
+     *
+     * @param datetime $invoiceDate
+     * @return Invoice
+     */
+    public function setInvoiceDate($invoiceDate)
+    {
+        $this->invoiceDate = $invoiceDate;
+    }
+
+
+    /**
+     * Get paymentDate
+     *
+     * @return datetime
+     */
+    public function getPaymentDate()
+    {
+        return $this->paymentDate;
+    }
+
+    /**
+     * Set paymentDate
+     *
+     * @param datetime $paymentDate
+     * @return Invoice
+     */
+    public function setPaymentDate($paymentDate)
+    {
+        $this->paymentDate = $paymentDate;
     }
 
 }
