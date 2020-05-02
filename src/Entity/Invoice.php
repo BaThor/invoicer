@@ -26,6 +26,12 @@ class Invoice
      */
     private $price;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Seller", inversedBy="invoices")
+     * @ORM\JoinColumn(name="seller_id", referencedColumnName="id")
+     */
+    private $seller;
+
   /**
     * @Assert\DateTime()
     * @ORM\Column(type="datetime")
@@ -128,4 +134,24 @@ class Invoice
         $this->paymentDate = $paymentDate;
     }
 
+    /**
+     * Get seller
+     *
+    */
+    public function getSeller()
+    {
+        return $this->seller;
+    }
+
+    /**
+     * Set seller
+     *
+     * @param $seller
+     * @return Seller
+     */
+    public function setSeller(Seller $seller)
+    {
+        $this->seller = $seller;
+    }
+    
 }

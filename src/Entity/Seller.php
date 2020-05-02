@@ -2,6 +2,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SellerRepository")
@@ -64,6 +65,15 @@ class Seller
      * @ORM\Column(type="string", length=255)
      */
     private $bankAccountNumber;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Invoice", mappedBy="seller")
+     */
+    private $invoices;
+
+    public function __construct() {
+        $this->invoices = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -279,5 +289,15 @@ class Seller
     {
         $this->bankAccountNumber = $bankAccountNumber;
     }
+
+     /**
+     * Get invoices
+     *
+     */
+    public function getInvoices()
+    {
+        return $this->invoices;
+    }
+
 
 }
