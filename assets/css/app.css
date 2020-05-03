@@ -1,0 +1,17 @@
+body, html {
+    height: 100%;
+}
+
+.aside {
+    background-color: #393A9D;
+}
+
+.content {   
+    background: #fff;
+}
+
+.a4 {
+    width: 595px;
+    height: 842px;
+    border: 1px solid;
+}

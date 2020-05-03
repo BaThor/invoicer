@@ -14,7 +14,7 @@ class BuyerController extends Controller
 {
 
     /**
-     * @Route("/dodaj-nabywce")
+     * @Route("/dodaj-nabywce", name="add_buyer")
     */
     public function indexAction(Request $request)
     {

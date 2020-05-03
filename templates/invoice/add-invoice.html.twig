@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="a4 border-1 mx-auto mt-4">
+        {{ form_start(form) }}
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.invoiceDate) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.invoiceDate, { 'attr': {'class': 'form-control', 'placeholder': 'Data wystawienia'} }) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.paymentDate) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.paymentDate, { 'attr': {'class': 'form-control', 'placeholder': 'Termin zapłaty'} }) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.paymentType) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.paymentType, { 'attr': {'class': 'form-control', 'placeholder': 'Sposób zapłaty'} }) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.invoiceNumber) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.invoiceNumber, { 'attr': {'class': 'form-control', 'placeholder': 'Rachunek numer'} }) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.seller) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.seller, { 'attr': {'class': 'form-control', 'placeholder': 'Sprzedawca'} }) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.buyer) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.buyer, { 'attr': {'class': 'form-control', 'placeholder': 'Nabywca'} }) }}
+                </div>
+            </div>      
+            <div class="form-group row">
+                <div class="col-3">
+                    {{ form_label(form.additionalInfo) }}
+                </div>
+                <div class="col-9">
+                    {{ form_widget(form.additionalInfo, { 'attr': {'class': 'form-control', 'placeholder': 'Dodatkowe informacje'} }) }}
+                </div>
+            </div>     
+                  
+        {{ form_end(form) }}
+
+        {{ dump(invoice) }}
+        {{ invoice.buyer }}
+    </div>
+{% endblock %}

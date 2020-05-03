@@ -5,34 +5,35 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Seller;
-use App\Form\Type\SellerFormType;
+use App\Entity\Invoice;
+use App\Form\Type\InvoiceFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class SellerController extends Controller
+class InvoiceController extends Controller
 {
 
     /**
-     * @Route("/dodaj-sprzedawce", name="add_seller")
+     * @Route("/dodaj-fakture", name="add_invoice")
     */
     public function indexAction(Request $request)
     {
 
-        $seller = new Seller();
+        $invoice = new Invoice();
 
-        $form = $this->createForm(SellerFormType::class, $seller);
+        $form = $this->createForm(InvoiceFormType::class, $invoice);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($seller);
+            $entityManager->persist($invoice);
             $entityManager->flush();
         }
 
-        return $this->render('seller/add-seller.html.twig', [
+        return $this->render('invoice/add-invoice.html.twig', [
             'form' => $form->createView(),
+            'invoice' => $invoice,
         ]);
 
     }

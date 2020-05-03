@@ -3,21 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
-        <div id="sidebar">
-            {% block sidebar %}
-                <ul>
-                    <li>Dodaj sprzedawce</li>
-                    <li>Dodaj nabywce</li>
-                    <li>Dodaj fakture</li>
+        <div class="row h-100">
+            <div class="col-2 aside">
+                <h3 class="text-center pt-3 text-white">INVOICER by GRUBY</h3>
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item"><a class="nav-link" href="{{ path('add_invoice') }}">Dodaj fakture</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('add_seller') }}">Dodaj sprzedawce</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('add_buyer') }}">Dodaj nabywce</a></li>
                 </ul>
-            {% endblock %}
+            </div>
+            <div class="col-10 content">
+                {% block body %}
+                
+                {% endblock %}
+            </div>
         </div>
-        <div id="content">
-            {% block body %}{% endblock %}
-        </div>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>

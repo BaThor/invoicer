@@ -56,10 +56,6 @@ class Seller
      */
     private $companyNIP;
 
-    /**
-     * @ORM\Column(type="text", length=1000)
-     */
-    private $additionalInfo;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -249,27 +245,6 @@ class Seller
     }
 
     /**
-     * Get additionalInfo
-     *
-     * @return string
-     */
-    public function getAdditionalInfo()
-    {
-        return $this->additionalInfo;
-    }
-    
-    /**
-     * Set additionalInfo
-     *
-     * @param string $additionalInfo
-     * @return Invoice
-     */
-    public function setAdditionalInfo($additionalInfo)
-    {
-        $this->additionalInfo = $additionalInfo;
-    }
-
-    /**
      * Get bankAccountNumber
      *
      * @return string
@@ -298,6 +273,5 @@ class Seller
     {
         return $this->invoices;
     }
-
 
 }

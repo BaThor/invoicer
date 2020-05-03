@@ -17,16 +17,6 @@ class Invoice
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $price;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Seller", inversedBy="invoices")
      * @ORM\JoinColumn(name="seller_id", referencedColumnName="id")
      */
@@ -37,6 +27,16 @@ class Invoice
      * @ORM\JoinColumn(name="buyer_id", referencedColumnName="id")
      */
     private $buyer;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $invoiceNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $paymentType;
 
   /**
     * @Assert\DateTime()
@@ -50,94 +50,15 @@ class Invoice
     */
     private $paymentDate;
 
+    /**
+     * @ORM\Column(type="text", length=1000)
+     */
+    private $additionalInfo;
+
+
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Invoice
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set price
-     *
-     * @param string $price
-     * @return Invoice
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
-
-    /**
-     * Get invoiceDate
-     *
-     * @return datetime
-     */
-    public function getInvoiceDate()
-    {
-        return $this->invoiceDate;
-    }
-
-    /**
-     * Set invoiceDate
-     *
-     * @param datetime $invoiceDate
-     * @return Invoice
-     */
-    public function setInvoiceDate($invoiceDate)
-    {
-        $this->invoiceDate = $invoiceDate;
-    }
-
-
-    /**
-     * Get paymentDate
-     *
-     * @return datetime
-     */
-    public function getPaymentDate()
-    {
-        return $this->paymentDate;
-    }
-
-    /**
-     * Set paymentDate
-     *
-     * @param datetime $paymentDate
-     * @return Invoice
-     */
-    public function setPaymentDate($paymentDate)
-    {
-        $this->paymentDate = $paymentDate;
     }
 
     /**
@@ -178,6 +99,111 @@ class Invoice
     public function setBuyer(Buyer $buyer)
     {
         $this->buyer = $buyer;
+    }
+
+    /**
+     * Get invoiceNumber
+     *
+     * @return integer
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->invoiceNumber;
+    }
+
+    /**
+     * Set invoiceNumber
+     *
+     * @param integer $invoiceNumber
+     * @return Invoice
+     */
+    public function setInvoiceNumber($invoiceNumber)
+    {
+        $this->invoiceNumber = $invoiceNumber;
+    }
+
+    /**
+     * Get paymentType
+     *
+     * @return string
+     */
+    public function getPaymentType()
+    {
+        return $this->paymentType;
+    }
+
+    /**
+     * Set paymentType
+     *
+     * @param string $paymentType
+     * @return Invoice
+     */
+    public function setPaymentType($paymentType)
+    {
+        $this->paymentType = $paymentType;
+    }
+
+    /**
+     * Get invoiceDate
+     *
+     * @return datetime
+     */
+    public function getInvoiceDate()
+    {
+        return $this->invoiceDate;
+    }
+
+    /**
+     * Set invoiceDate
+     *
+     * @param datetime $invoiceDate
+     * @return Invoice
+     */
+    public function setInvoiceDate($invoiceDate)
+    {
+        $this->invoiceDate = $invoiceDate;
+    }
+
+    /**
+     * Get paymentDate
+     *
+     * @return datetime
+     */
+    public function getPaymentDate()
+    {
+        return $this->paymentDate;
+    }
+
+    /**
+     * Set paymentDate
+     *
+     * @param datetime $paymentDate
+     * @return Invoice
+     */
+    public function setPaymentDate($paymentDate)
+    {
+        $this->paymentDate = $paymentDate;
+    }
+
+    /**
+     * Get additionalInfo
+     *
+     * @return string
+     */
+    public function getAdditionalInfo()
+    {
+        return $this->additionalInfo;
+    }
+    
+    /**
+     * Set additionalInfo
+     *
+     * @param string $additionalInfo
+     * @return Invoice
+     */
+    public function setAdditionalInfo($additionalInfo)
+    {
+        $this->additionalInfo = $additionalInfo;
     }
 
 }

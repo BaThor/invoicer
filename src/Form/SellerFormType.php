@@ -46,10 +46,6 @@ class SellerFormType extends AbstractType
                     'label' => 'NIP',
                 ]
             )
-            ->add('additionalInfo', TextType::class, [
-                'label' => 'Dodatkowe informacje',
-                ]
-            )
             ->add('bankAccountNumber', TextType::class, [
                 'label' => 'Numer konta bankowego',
                 ]
